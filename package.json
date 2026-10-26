@@ -1,0 +1,47 @@
+{
+  "name": "parking",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "server": "tsx server/index.ts",
+    "server:dev": "tsx watch server/index.ts",
+    "build": "tsc -b && vite build",
+    "lint": "oxlint",
+    "preview": "vite preview",
+    "test": "tsx -e \"import { runAllCompetitionTests } from './src/tests/competitionTests.ts'; const res = runAllCompetitionTests(); console.log(JSON.stringify(res, null, 2)); process.exit(res.passed === res.total ? 0 : 1);\"",
+    "test:server": "tsx server/test/backendIntegration.test.ts",
+    "test:persistence": "npx -y tsx -e \"import { runPersistenceTests } from './server/test/persistence.test.ts'; const res = runPersistenceTests(); console.log(JSON.stringify(res, null, 2)); process.exit(res.passed === res.total ? 0 : 1);\"",
+    "test:all": "npm test && npm run test:server && npm run test:persistence"
+  },
+  "dependencies": {
+    "@types/three": "^0.186.0",
+    "better-sqlite3": "^13.0.3",
+    "canvas-confetti": "^1.9.4",
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.6",
+    "express": "^5.2.1",
+    "framer-motion": "^14.0.0",
+    "lucide-react": "^1.53.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "three": "^0.186.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/better-sqlite3": "^9.6.0",
+    "@types/canvas-confetti": "^1.9.0",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/node": "^24.13.3",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.7",
+    "@vitejs/plugin-react": "^6.1.1",
+    "oxlint": "^1.81.0",
+    "tailwindcss": "^4.3.3",
+    "tsx": "^4.19.3",
+    "typescript": "~6.0.2",
+    "vite": "^8.3.0"
+  }
+}
